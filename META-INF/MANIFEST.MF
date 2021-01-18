@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Zabara
+Bundle-SymbolicName: ua.com.rcp.zabara;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: ua.com.rcp.zabara.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.apache.felix.scr,
+ org.eclipse.equinox.event
+Automatic-Module-Name: ua.com.rcp.zabara
+Bundle-ActivationPolicy: lazy
