@@ -9,6 +9,8 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
+import ua.com.rcp.zabara.Utils;
+
 
 /**
  * This composite responsible input data
