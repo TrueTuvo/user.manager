@@ -20,9 +20,16 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
     @Override
     public void preWindowOpen() {
         IWorkbenchWindowConfigurer configurer = getWindowConfigurer();
-        configurer.setInitialSize(new Point(400, 300));
-        configurer.setShowCoolBar(false);
-        configurer.setShowStatusLine(false);
-        configurer.setTitle("User Manager App"); //$NON-NLS-1$
+        configurer.setInitialSize(new Point(600, 400));
+        // Show MenuBar
+        configurer.setShowMenuBar(true);
+        // Show CoolBar.
+        configurer.setShowCoolBar(true);
+        // Show Status Line.
+        configurer.setShowStatusLine(true);
+        // Show ProgressIndicator
+        configurer.setShowProgressIndicator(true);
+        
+        configurer.setTitle("User Manager App");
     }
 }
