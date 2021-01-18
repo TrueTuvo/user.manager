@@ -171,7 +171,7 @@ public class Utils {
      * 
      * @return CompositePart's object of the app
      */
-    public static ComplexComposite getCompositePart() {
+    public static CompositePart getCompositePart() {
         IWorkbenchPage compositePage = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
         IViewPart compositeViewPart = null;
         try {
@@ -179,7 +179,7 @@ public class Utils {
         } catch (PartInitException e) {
             e.printStackTrace();
         }
-        return (ComplexComposite) compositeViewPart;
+        return (CompositePart) compositeViewPart;
 
     }
 }
