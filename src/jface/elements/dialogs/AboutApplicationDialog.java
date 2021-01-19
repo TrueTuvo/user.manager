@@ -14,6 +14,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 
+
 import ua.com.rcp.zabara.Utils;
 
 /**
@@ -23,7 +24,6 @@ import ua.com.rcp.zabara.Utils;
  * @author SZabara
  */
 public class AboutApplicationDialog extends MessageDialog {
-
     public AboutApplicationDialog() {
         super(Display.getCurrent().getActiveShell(), "About", Utils.getImageForAbout(), "My message",
                 MessageDialog.INFORMATION, new String[] { "Ok" }, 0);

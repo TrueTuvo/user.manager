@@ -12,16 +12,13 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
-import org.eclipse.ui.IViewPart;
-import org.eclipse.ui.IWorkbenchPage;
-import org.eclipse.ui.PartInitException;
-import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
 
 import jface.elements.model.CheckBoxLabelProvider;
 import jface.elements.model.ModelProvider;
 import jface.elements.model.Person;
 import swt.elements.ComplexComposite;
+import ua.com.rcp.zabara.Utils;
 
 /**
  * This class need for customize and control of table viewer
@@ -49,14 +46,8 @@ public class TableViewerPart extends ViewPart {
 
             @Override
             public void selectionChanged(SelectionChangedEvent event) {
-                IWorkbenchPage compositePage = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
-                IViewPart compositeViewPart = null;
-                try {
-                    compositeViewPart = compositePage.showView(CompositePart.ID);
-                } catch (PartInitException e) {
-                    e.printStackTrace();
-                }
-                CompositePart compositePart = (CompositePart) compositeViewPart;
+
+                CompositePart compositePart = Utils.getCompositePart();
                 ComplexComposite mainComposite = compositePart.getComplexComposite();
                 Person selectedPerson = (Person) viewer.getStructuredSelection().getFirstElement();
                 if (selectedPerson != null) {
@@ -82,7 +73,6 @@ public class TableViewerPart extends ViewPart {
         table.setLinesVisible(true);
 
         viewer.setContentProvider(new ArrayContentProvider());
-
         viewer.setInput(ModelProvider.INSTANCE.getPersons());
 
         // Layout the viewer

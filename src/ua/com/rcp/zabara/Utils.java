@@ -13,6 +13,8 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.IHandlerService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import jface.elements.model.Person;
 import parts.CompositePart;
@@ -26,6 +28,9 @@ import swt.elements.ComplexComposite;
  *
  */
 public class Utils {
+    
+    private static final Logger LOG = LoggerFactory.getLogger(Utils.class);
+
 
     public static final String COMMAND_NEW = "ua.com.rcp.zabara.command.new";
     public static final String COMMAND_SAVE = "ua.com.rcp.zabara.command.save";
@@ -127,6 +132,8 @@ public class Utils {
             return result;
         } catch (Exception e) {
             e.printStackTrace();
+            LOG.warn("Failed to get Image");
+
 
         }
 
@@ -144,6 +151,7 @@ public class Utils {
             service.executeCommand(command, null);
         } catch (ExecutionException | NotDefinedException | NotEnabledException | NotHandledException e1) {
             e1.printStackTrace();
+            LOG.warn("Failed to execute command");
         }
     }
 
@@ -159,6 +167,7 @@ public class Utils {
             tableViewPart = tablePage.showView(TableViewerPart.ID);
         } catch (PartInitException e) {
             e.printStackTrace();
+            LOG.error("Failed to get TableViewerPart");
         }
         return (TableViewerPart) tableViewPart;
 
@@ -176,6 +185,7 @@ public class Utils {
             compositeViewPart = compositePage.showView(CompositePart.ID);
         } catch (PartInitException e) {
             e.printStackTrace();
+            LOG.error("Failed to get CompositeViewPart");
         }
         return (CompositePart) compositeViewPart;
 

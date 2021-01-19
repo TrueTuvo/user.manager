@@ -8,6 +8,8 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import jface.elements.model.Person;
 import parts.TableViewerPart;
@@ -22,6 +24,9 @@ import ua.com.rcp.zabara.Utils;
  * @author SZabara
  */
 public class CreateNewPersonDialog extends Dialog {
+    
+    private static final Logger LOG = LoggerFactory.getLogger(CreateNewPersonDialog.class);
+
 
     private TableViewerPart tableViewerPart;
 
@@ -65,7 +70,8 @@ public class CreateNewPersonDialog extends Dialog {
             swtDone = swtDoneCheckLine.getSwtDoneButton().getSelection();
 
         } catch (NumberFormatException e) {
-            MessageDialog.openInformation(Display.getCurrent().getActiveShell(), "Incorrect input",
+            LOG.info("An attempt to save an invalid person");
+            MessageDialog.openInformation(Display.getCurrent().getActiveShell(), "Incorrect input", 
                     "Your input was empty. Please, put the correct data");
         }
 

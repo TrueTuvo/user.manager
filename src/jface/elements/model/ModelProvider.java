@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import ua.com.rcp.zabara.Utils;
 
@@ -17,6 +18,7 @@ import ua.com.rcp.zabara.Utils;
  * @author SZabara
  */
 public enum ModelProvider {
+
     INSTANCE;
 
     private List<Person> persons;
@@ -47,6 +49,7 @@ public enum ModelProvider {
                                 Boolean.parseBoolean(personDataElements[2]));
                         persons.add(person);
                     } catch (Exception e) {
+                        Logger.getLogger(ModelProvider.class.getName()).warning("failure when trying to read a person");
                         System.out.println("Cant parse line to person correctly: " + personDataString);
                     }
                 }
