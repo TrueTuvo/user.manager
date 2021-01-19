@@ -39,8 +39,8 @@ public class InputDataComposite extends Composite {
             @Override
             public void verifyText(VerifyEvent e) {
                 String oldInputValue = ((Text) e.widget).getText();
-                String newSInputValue = oldInputValue.substring(0, e.start) + e.text + oldInputValue.substring(e.end);
-                if (Utils.isName(newSInputValue)) {
+                String newInputValue = oldInputValue.substring(0, e.start) + e.text + oldInputValue.substring(e.end);
+                if (Utils.isName(newInputValue)) {
                     e.doit = true;
                 } else {
                     e.doit = false;
