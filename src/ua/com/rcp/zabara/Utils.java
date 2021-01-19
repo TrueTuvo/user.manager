@@ -88,7 +88,6 @@ public class Utils {
         availablePerson.setName(name);
         availablePerson.setGroup(group);
         availablePerson.setSwtDone(swtDone);
-        ;
     }
 
     /**
@@ -123,8 +122,8 @@ public class Utils {
 
         try {
             URL imageURL = new URL("platform:/plugin/ua.com.rcp.zabara/icons/ñapture.png");
-            ImageDescriptor id = ImageDescriptor.createFromURL(imageURL);
-            result = id.createImage();
+            ImageDescriptor imageDescriptor = ImageDescriptor.createFromURL(imageURL);
+            result = imageDescriptor.createImage();
             return result;
         } catch (Exception e) {
             e.printStackTrace();

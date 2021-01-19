@@ -32,12 +32,14 @@ public class AboutApplicationDialog extends MessageDialog {
     @Override
     protected Control createDialogArea(Composite parent) {
         parent.setLayout(new GridLayout(2, false));
-        Label imagelabel = new Label(parent, SWT.LEFT);
-        Image aboutImage = Utils.getImageForAbout();
 
-        imagelabel.setImage(aboutImage);
+        Label imagelabel = new Label(parent, SWT.LEFT);
         imagelabel = new Label(parent, SWT.LEFT);
         imagelabel.setText("The  product is demo" + System.lineSeparator() + "(c) 2013");
+
+        Image aboutImage = Utils.getImageForAbout();
+        imagelabel.setImage(aboutImage);
+
         return parent;
 
     }

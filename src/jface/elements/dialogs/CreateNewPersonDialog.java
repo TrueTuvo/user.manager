@@ -60,7 +60,7 @@ public class CreateNewPersonDialog extends Dialog {
         boolean swtDone = false;
 
         try {
-            name = inputDataComposite.getNameTextField().getText();
+            name = inputDataComposite.getNameTextField().getText();         
             group = Integer.parseInt(inputDataComposite.getGroupTextField().getText());
             swtDone = swtDoneCheckLine.getSwtDoneButton().getSelection();
 

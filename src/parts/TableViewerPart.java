@@ -49,7 +49,6 @@ public class TableViewerPart extends ViewPart {
 
             @Override
             public void selectionChanged(SelectionChangedEvent event) {
-                Person selectedPerson = (Person) viewer.getStructuredSelection().getFirstElement();
                 IWorkbenchPage compositePage = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
                 IViewPart compositeViewPart = null;
                 try {
@@ -59,6 +58,7 @@ public class TableViewerPart extends ViewPart {
                 }
                 CompositePart compositePart = (CompositePart) compositeViewPart;
                 ComplexComposite mainComposite = compositePart.getComplexComposite();
+                Person selectedPerson = (Person) viewer.getStructuredSelection().getFirstElement();
                 if (selectedPerson != null) {
                     mainComposite.getNameTextField().setText(selectedPerson.getName());
                     mainComposite.getGroupTextField().setText(String.valueOf(selectedPerson.getGroup()));
@@ -117,17 +117,17 @@ public class TableViewerPart extends ViewPart {
         int[] bounds = { 100, 70, 60 };
 
         // First column is for the name
-        TableViewerColumn col = createTableViewerColumn(titles[0], bounds[0], 0);
-        col.setLabelProvider(new ColumnLabelProvider() {
+        TableViewerColumn tableViewerColumn = createTableViewerColumn(titles[0], bounds[0], 0);
+        tableViewerColumn.setLabelProvider(new ColumnLabelProvider() {
             @Override
             public String getText(Object element) {
-                Person p = (Person) element;
-                return p.getName();
+                Person person = (Person) element;
+                return person.getName();
             }
         });
         // Second column is for the group
-        col = createTableViewerColumn(titles[1], bounds[1], 1);
-        col.setLabelProvider(new ColumnLabelProvider() {
+        tableViewerColumn = createTableViewerColumn(titles[1], bounds[1], 1);
+        tableViewerColumn.setLabelProvider(new ColumnLabelProvider() {
             @Override
             public String getText(Object element) {
                 Person p = (Person) element;
@@ -135,8 +135,8 @@ public class TableViewerPart extends ViewPart {
             }
         });
         // Third column is for the swtDone
-        col = createTableViewerColumn(titles[2], bounds[2], 2);
-        col.setLabelProvider(new CheckBoxLabelProvider(viewer) {
+        tableViewerColumn = createTableViewerColumn(titles[2], bounds[2], 2);
+        tableViewerColumn.setLabelProvider(new CheckBoxLabelProvider(viewer) {
             @Override
             protected boolean isChecked(Object element) {
                 return ((Person) element).isSwtDone();

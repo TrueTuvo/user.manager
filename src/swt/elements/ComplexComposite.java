@@ -9,7 +9,7 @@ import org.eclipse.swt.widgets.Text;
 
 /**
  * 
- * Consist of the three composites : InputFields, ButtonLine and SWTButtonCheckLine, provides access to the important
+ * Consist of the three composites : InputDataComposite, CrudButtonsComposite and CheckLineComposite, provides access to the important
  * elements
  * 
  * @author SZabara
@@ -36,22 +36,22 @@ public class ComplexComposite extends Composite {
         setLayout(new GridLayout(1, false));
         setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 
-        InputDataComposite inputValues = new InputDataComposite(this, SWT.FILL);
-        inputValues.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+        InputDataComposite inputDataComposite = new InputDataComposite(this, SWT.FILL);
+        inputDataComposite.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+        nameTextField = inputDataComposite.getNameTextField();
+        groupTextField = inputDataComposite.getGroupTextField();
 
-        CheckLineComposite swtDoneCheckLine = new CheckLineComposite(this, SWT.FILL);
-        swtDoneCheckLine.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+        CheckLineComposite checkLineComposite = new CheckLineComposite(this, SWT.FILL);
+        checkLineComposite.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+        swtCheckdone = checkLineComposite.getSwtDoneButton();
 
-        CrudButtonsComposite buttonLine = new CrudButtonsComposite(this, SWT.FILL);
-        buttonLine.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+        CrudButtonsComposite crudButtonsComposite = new CrudButtonsComposite(this, SWT.FILL);
+        crudButtonsComposite.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 
-        nameTextField = inputValues.getNameTextField();
-        groupTextField = inputValues.getGroupTextField();
-        swtCheckdone = swtDoneCheckLine.getSwtDoneButton();
-        newButton = buttonLine.getNewPersonButton();
-        saveButton = buttonLine.getSavePersonButton();
-        deleteButton = buttonLine.getDeletePersonButton();
-        resetButton = buttonLine.getResetPersonButton();
+        newButton = crudButtonsComposite.getNewPersonButton();
+        saveButton = crudButtonsComposite.getSavePersonButton();
+        deleteButton = crudButtonsComposite.getDeletePersonButton();
+        resetButton = crudButtonsComposite.getResetPersonButton();
     }
 
     /**
