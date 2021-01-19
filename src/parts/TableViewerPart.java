@@ -33,7 +33,7 @@ import swt.elements.ComplexComposite;
  */
 public class TableViewerPart extends ViewPart {
 
-    public static final String ID = "ua.test.rcp.zabara.view.table";
+    public static final String ID = "ua.com.rcp.zabara.view.table";
 
     private TableViewer viewer;
 

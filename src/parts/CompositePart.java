@@ -21,7 +21,7 @@ import ua.com.rcp.zabara.Utils;
  */
 public class CompositePart extends ViewPart {
 
-    public static final String ID = "ua.test.rcp.zabara.view.composite";
+    public static final String ID = "ua.com.rcp.zabara.view.composite";
 
     private ComplexComposite complexComposite;
 
