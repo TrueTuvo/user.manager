@@ -34,4 +34,3 @@ public class CheckLineComposite extends Composite {
         return swtDoneButton;
     }
 }
-

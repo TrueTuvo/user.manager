@@ -8,7 +8,6 @@ import parts.CompositePart;
 import parts.TableViewerPart;
 import ua.com.rcp.zabara.Utils;
 
-
 /**
  * Handler, which undo changes of selected person
  * 

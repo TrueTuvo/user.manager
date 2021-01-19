@@ -15,7 +15,6 @@ import jface.elements.model.ModelProvider;
 import jface.elements.model.Person;
 import ua.com.rcp.zabara.Utils;
 
-
 /**
  * Handler, which writes updates to the database.txr and close app
  * 

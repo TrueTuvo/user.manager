@@ -8,7 +8,6 @@ import jface.elements.dialogs.DeletePersonDialog;
 import parts.TableViewerPart;
 import ua.com.rcp.zabara.Utils;
 
-
 /**
  * Handler, which remove selected person from model
  * 

@@ -11,7 +11,6 @@ import org.eclipse.swt.widgets.Text;
 
 import ua.com.rcp.zabara.Utils;
 
-
 /**
  * This composite responsible input data
  * 
@@ -46,9 +45,9 @@ public class InputDataComposite extends Composite {
 
             @Override
             public void verifyText(VerifyEvent e) {
-                String oldS = ((Text) e.widget).getText();
-                String newS = oldS.substring(0, e.start) + e.text + oldS.substring(e.end);
-                if (Utils.isName(newS)) {
+                String oldInputValue = ((Text) e.widget).getText();
+                String newSInputValue = oldInputValue.substring(0, e.start) + e.text + oldInputValue.substring(e.end);
+                if (Utils.isName(newSInputValue)) {
                     e.doit = true;
                 } else {
                     e.doit = false;

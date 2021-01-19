@@ -16,7 +16,6 @@ import org.eclipse.swt.widgets.Shell;
 
 import ua.com.rcp.zabara.Utils;
 
-
 /**
  * 
  * Creates a shell with information about app.

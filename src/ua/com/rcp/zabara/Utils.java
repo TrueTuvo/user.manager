@@ -19,7 +19,6 @@ import parts.CompositePart;
 import parts.TableViewerPart;
 import swt.elements.ComplexComposite;
 
-
 /**
  * Using for simplification routine operation. consist of static methods and constants.
  * 

@@ -6,7 +6,6 @@ import org.eclipse.core.commands.ExecutionException;
 
 import jface.elements.dialogs.AboutApplicationDialog;
 
-
 /**
  * Handler, which displaying additional info about app
  * 

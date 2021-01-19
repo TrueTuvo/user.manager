@@ -23,8 +23,6 @@ import jface.elements.model.ModelProvider;
 import jface.elements.model.Person;
 import swt.elements.ComplexComposite;
 
-
-
 /**
  * This class need for customize and control of table viewer
  * 

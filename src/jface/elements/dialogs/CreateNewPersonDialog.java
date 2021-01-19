@@ -15,8 +15,6 @@ import swt.elements.CheckLineComposite;
 import swt.elements.InputDataComposite;
 import ua.com.rcp.zabara.Utils;
 
-
-
 /**
  * 
  * Every time, when user try to add new person, must fill empty fields confirm action in dialog window

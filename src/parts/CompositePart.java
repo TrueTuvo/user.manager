@@ -10,7 +10,6 @@ import org.eclipse.ui.part.ViewPart;
 import swt.elements.ComplexComposite;
 import ua.com.rcp.zabara.Utils;
 
-
 /**
  * 
  * View, which is responsible for displaying the user menu. This includes fields for editing data of the selected

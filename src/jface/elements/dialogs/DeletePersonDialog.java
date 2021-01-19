@@ -13,8 +13,6 @@ import org.eclipse.swt.widgets.Shell;
 import jface.elements.model.Person;
 import parts.TableViewerPart;
 
-
-
 /**
  * 
  * Every time, when user try to delete person, must confirm action in dialog window

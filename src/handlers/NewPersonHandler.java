@@ -8,8 +8,6 @@ import jface.elements.dialogs.CreateNewPersonDialog;
 import parts.TableViewerPart;
 import ua.com.rcp.zabara.Utils;
 
-
-
 /**
  * Handler, which opens dialog for create new person
  * 
@@ -26,4 +24,3 @@ public class NewPersonHandler extends AbstractHandler {
     }
 
 }
-

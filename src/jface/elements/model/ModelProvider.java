@@ -10,7 +10,6 @@ import java.util.List;
 
 import ua.com.rcp.zabara.Utils;
 
-
 /**
  * 
  * The model provider basis on two things: the list of persons and text file
