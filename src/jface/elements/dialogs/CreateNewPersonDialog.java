@@ -24,9 +24,8 @@ import ua.com.rcp.zabara.Utils;
  * @author SZabara
  */
 public class CreateNewPersonDialog extends Dialog {
-    
-    private static final Logger LOG = LoggerFactory.getLogger(CreateNewPersonDialog.class);
 
+    private static final Logger LOG = LoggerFactory.getLogger(CreateNewPersonDialog.class);
 
     private TableViewerPart tableViewerPart;
 
@@ -65,13 +64,13 @@ public class CreateNewPersonDialog extends Dialog {
         boolean swtDone = false;
 
         try {
-            name = inputDataComposite.getNameTextField().getText();         
+            name = inputDataComposite.getNameTextField().getText();
             group = Integer.parseInt(inputDataComposite.getGroupTextField().getText());
             swtDone = swtDoneCheckLine.getSwtDoneButton().getSelection();
 
         } catch (NumberFormatException e) {
             LOG.info("An attempt to save an invalid person");
-            MessageDialog.openInformation(Display.getCurrent().getActiveShell(), "Incorrect input", 
+            MessageDialog.openInformation(Display.getCurrent().getActiveShell(), "Incorrect input",
                     "Your input was empty. Please, put the correct data");
         }
 

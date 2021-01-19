@@ -19,10 +19,10 @@ public class CheckLineComposite extends Composite {
     public CheckLineComposite(Composite parent, int style) {
         super(parent, style);
         setLayout(new FillLayout(SWT.HORIZONTAL));
-        
+
         Label swtDoneLabel = new Label(this, SWT.FILL);
         swtDoneLabel.setText("SWT task Done");
-        
+
         swtDoneButton = new Button(this, SWT.CHECK | SWT.RIGHT);
         swtDoneButton.setOrientation(SWT.RIGHT_TO_LEFT);
     }

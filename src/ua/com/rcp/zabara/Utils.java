@@ -28,9 +28,8 @@ import swt.elements.ComplexComposite;
  *
  */
 public class Utils {
-    
-    private static final Logger LOG = LoggerFactory.getLogger(Utils.class);
 
+    private static final Logger LOG = LoggerFactory.getLogger(Utils.class);
 
     public static final String COMMAND_NEW = "ua.com.rcp.zabara.command.new";
     public static final String COMMAND_SAVE = "ua.com.rcp.zabara.command.save";
@@ -133,7 +132,6 @@ public class Utils {
         } catch (Exception e) {
             e.printStackTrace();
             LOG.warn("Failed to get Image");
-
 
         }
 

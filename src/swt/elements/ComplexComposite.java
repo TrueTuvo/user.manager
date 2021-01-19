@@ -9,8 +9,8 @@ import org.eclipse.swt.widgets.Text;
 
 /**
  * 
- * Consist of the three composites : InputDataComposite, CrudButtonsComposite and CheckLineComposite, provides access to the important
- * elements
+ * Consist of the three composites : InputDataComposite, CrudButtonsComposite and CheckLineComposite, provides access to
+ * the important elements
  * 
  * @author SZabara
  * 

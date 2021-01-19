@@ -56,8 +56,10 @@ public enum ModelProvider {
             }
         } catch (FileNotFoundException exception) {
             System.err.println("Could not find the DATABASE file");
+            Logger.getLogger(ModelProvider.class.getName()).warning("failure when trying to find the DATABASE file");
         } catch (IOException e) {
             System.err.println("Could not read the DATABASE file");
+            Logger.getLogger(ModelProvider.class.getName()).warning("failure when trying to read the DATABASE file");
         }
 
         return persons;

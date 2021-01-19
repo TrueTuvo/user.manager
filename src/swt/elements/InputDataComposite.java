@@ -30,7 +30,7 @@ public class InputDataComposite extends Composite {
         Label nameLabel = new Label(this, SWT.FILL);
         nameLabel.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
         nameLabel.setText("Name ");
-        
+
         nameTextField = new Text(this, SWT.FILL);
         nameTextField.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
         nameTextField.setToolTipText("Input can not be empty");
@@ -47,11 +47,11 @@ public class InputDataComposite extends Composite {
                 }
             }
         });
-        
+
         Label groupLabel = new Label(this, SWT.FILL);
         groupLabel.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
         groupLabel.setText("Group ");
-        
+
         groupTextField = new Text(this, SWT.FILL);
         groupTextField.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
         groupTextField.setToolTipText("Group must be a number from 1 to 99");

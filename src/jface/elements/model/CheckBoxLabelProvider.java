@@ -50,7 +50,7 @@ public abstract class CheckBoxLabelProvider extends OwnerDrawLabelProvider {
      * @return image of checked/unchecked buttons state
      */
     private Image makeShot(Shell shell, boolean type) {
-        Shell shellContainsImage = new Shell(shell, SWT.NO_TRIM);  
+        Shell shellContainsImage = new Shell(shell, SWT.NO_TRIM);
         Button buttonContainsImage = new Button(shellContainsImage, SWT.CHECK);
         buttonContainsImage.setSelection(type);
         Point bsize = buttonContainsImage.computeSize(SWT.DEFAULT, SWT.DEFAULT);
