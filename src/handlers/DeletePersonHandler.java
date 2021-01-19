@@ -4,31 +4,26 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 
-import parts.CompositePart;
+import jface.elements.dialogs.DeletePersonDialog;
 import parts.TableViewerPart;
 import ua.com.rcp.zabara.Utils;
 
 
 /**
- * Handler, which undo changes of selected person
+ * Handler, which remove selected person from model
  * 
  * @author SZabara
  *
  */
-public class CancelPesonHandler extends AbstractHandler {
+public class DeletePersonHandler extends AbstractHandler {
 
     @Override
     public Object execute(ExecutionEvent event) throws ExecutionException {
-
         TableViewerPart tableViewerPart = Utils.getTableViewerPart();
-
-        CompositePart compositePart = Utils.getCompositePart();
-
         if (tableViewerPart.getCurrentPerson() != null) {
-            Utils.removeChangesPersonData(compositePart.getComplexComposite(), tableViewerPart.getCurrentPerson());
-            tableViewerPart.getViewer().refresh();
+            new DeletePersonDialog(tableViewerPart).open();
         }
-        return compositePart;
+        return null;
     }
 
 }
