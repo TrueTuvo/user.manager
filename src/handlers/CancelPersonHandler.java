@@ -27,7 +27,7 @@ public class CancelPersonHandler extends AbstractHandler {
             Utils.removeChangesPersonData(compositePart.getComplexComposite(), tableViewerPart.getCurrentPerson());
             tableViewerPart.getViewer().refresh();
         }
-        return compositePart;
+        return null;
     }
 
 }

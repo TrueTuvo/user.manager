@@ -30,7 +30,7 @@ public class InputDataComposite extends Composite {
         nameLabel.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
         nameTextField = new Text(this, SWT.FILL);
         nameTextField.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
-        nameTextField.setToolTipText("Input cannot be empty");
+        nameTextField.setToolTipText("Input can not be empty");
         Label groupLabel = new Label(this, SWT.FILL);
         groupLabel.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
         groupTextField = new Text(this, SWT.FILL);

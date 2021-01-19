@@ -33,21 +33,21 @@ public enum ModelProvider {
 
         List<Person> persons = new ArrayList<Person>();
 
-        File file = new File(Utils.DATABASE_PATH);
+        File databasefile = new File(Utils.DATABASE_PATH);
 
-        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(databasefile))) {
 
-            while (br.ready()) {
+            while (reader.ready()) {
 
-                String text = br.readLine();
-                if (!text.equals("")) {
-                    String[] parts = text.split(",");
+                String personDataString = reader.readLine();
+                if (!personDataString.equals("")) {
+                    String[] personDataElements = personDataString.split(",");
                     try {
-                        Person person = new Person(parts[0], Integer.parseInt(parts[1]),
-                                Boolean.parseBoolean(parts[2]));
+                        Person person = new Person(personDataElements[0], Integer.parseInt(personDataElements[1]),
+                                Boolean.parseBoolean(personDataElements[2]));
                         persons.add(person);
                     } catch (Exception e) {
-                        System.out.println("Cant parse line to person correctly: " + text);
+                        System.out.println("Cant parse line to person correctly: " + personDataString);
                     }
                 }
             }

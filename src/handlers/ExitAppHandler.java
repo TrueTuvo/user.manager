@@ -27,16 +27,16 @@ public class ExitAppHandler extends AbstractHandler {
     public Object execute(ExecutionEvent event) throws ExecutionException {
         if (MessageDialog.openConfirm(Display.getCurrent().getActiveShell(), "Confirmation", "Do you want to exit?")) {
             try {
-                FileWriter tfw = new FileWriter(new File(Utils.DATABASE_PATH));
-                BufferedWriter tbw = new BufferedWriter(tfw);
+                FileWriter fileWriter = new FileWriter(new File(Utils.DATABASE_PATH));
+                BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
                 for (Person person : ModelProvider.INSTANCE.getPersons()) {
-                    tbw.write(person.getName() + "," + person.getGroup() + "," + person.isSwtDone());
-                    tbw.newLine();
+                    bufferedWriter.write(person.getName() + "," + person.getGroup() + "," + person.isSwtDone());
+                    bufferedWriter.newLine();
                 }
-                tbw.flush();
+                bufferedWriter.flush();
 
-                tbw.close();
+                bufferedWriter.close();
             } catch (IOException ex) {
                 System.err.println("Some problem with writing file. Changes was not saved.");
             }

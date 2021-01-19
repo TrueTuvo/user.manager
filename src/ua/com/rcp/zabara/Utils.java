@@ -27,10 +27,10 @@ import swt.elements.ComplexComposite;
  */
 public class Utils {
 
-    public static final String COMMAND_NEW = "ua.test.rcp.zabara.command.new";
-    public static final String COMMAND_SAVE = "ua.test.rcp.zabara.command.save";
-    public static final String COMMAND_DELETE = "ua.test.rcp.zabara.command.delete";
-    public static final String COMMAND_CANCEL = "ua.test.rcp.zabara.command.cancel";
+    public static final String COMMAND_NEW = "ua.com.rcp.zabara.command.new";
+    public static final String COMMAND_SAVE = "ua.com.rcp.zabara.command.save";
+    public static final String COMMAND_DELETE = "ua.com.rcp.zabara.command.delete";
+    public static final String COMMAND_CANCEL = "ua.com.rcp.zabara.command.cancel";
 
     public static final String DATABASE_PATH = "C:\\luxoft\\database.txt";
 
@@ -122,7 +122,7 @@ public class Utils {
         Image result = null;
 
         try {
-            URL imageURL = new URL("platform:/plugin/ua.test.rcp.zabara/icons/ñapture.png");
+            URL imageURL = new URL("platform:/plugin/ua.com.rcp.zabara/icons/ñapture.png");
             ImageDescriptor id = ImageDescriptor.createFromURL(imageURL);
             result = id.createImage();
             return result;

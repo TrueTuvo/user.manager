@@ -19,8 +19,8 @@ public class NewPersonHandler extends AbstractHandler {
     @Override
     public Object execute(ExecutionEvent event) throws ExecutionException {
         TableViewerPart tableViewerPart = Utils.getTableViewerPart();
-        new CreateNewPersonDialog(tableViewerPart).open();
-        return null;
+        return new CreateNewPersonDialog(tableViewerPart).open();
+
     }
 
 }

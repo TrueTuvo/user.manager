@@ -16,8 +16,7 @@ public class AboutAppHandler extends AbstractHandler {
 
     @Override
     public Object execute(ExecutionEvent event) throws ExecutionException {
-        new AboutApplicationDialog().open();
-        return null;
+        return new AboutApplicationDialog().open();
     }
 
 }

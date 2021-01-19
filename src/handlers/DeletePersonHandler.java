@@ -20,7 +20,7 @@ public class DeletePersonHandler extends AbstractHandler {
     public Object execute(ExecutionEvent event) throws ExecutionException {
         TableViewerPart tableViewerPart = Utils.getTableViewerPart();
         if (tableViewerPart.getCurrentPerson() != null) {
-            new DeletePersonDialog(tableViewerPart).open();
+            return new DeletePersonDialog(tableViewerPart).open();
         }
         return null;
     }
