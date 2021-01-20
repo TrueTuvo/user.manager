@@ -5,6 +5,8 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Display;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import jface.elements.model.ModelProvider;
 import jface.elements.model.Person;
@@ -20,6 +22,8 @@ import ua.com.rcp.zabara.Utils;
  */
 public class SavePersonHandler extends AbstractHandler {
 
+    private static final Logger LOG = LoggerFactory.getLogger(SavePersonHandler.class);
+
     @Override
     public Object execute(ExecutionEvent event) throws ExecutionException {
         String name = null;
@@ -32,6 +36,7 @@ public class SavePersonHandler extends AbstractHandler {
             group = Integer.parseInt(compositePart.getComplexComposite().getGroupTextField().getText());
             swtDone = compositePart.getComplexComposite().getSwtCheckdone().getSelection();
         } catch (NumberFormatException ignore) {
+            LOG.info("An attempt to save an invalid person");
             MessageDialog.openInformation(Display.getCurrent().getActiveShell(), "Incoorect input",
                     "Your input was incorrect. Please, put the correct data");
         }

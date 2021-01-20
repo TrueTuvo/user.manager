@@ -10,6 +10,8 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Display;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import jface.elements.model.ModelProvider;
 import jface.elements.model.Person;
@@ -22,6 +24,8 @@ import ua.com.rcp.zabara.Utils;
  *
  */
 public class ExitAppHandler extends AbstractHandler {
+    private static final Logger LOG = LoggerFactory.getLogger(ExitAppHandler.class);
+
 
     @Override
     public Object execute(ExecutionEvent event) throws ExecutionException {
@@ -38,6 +42,7 @@ public class ExitAppHandler extends AbstractHandler {
 
                 bufferedWriter.close();
             } catch (IOException ex) {
+                LOG.warn("Some problem with writing file. Changes was not saved.");
                 System.err.println("Some problem with writing file. Changes was not saved.");
             }
             Display.getCurrent().getActiveShell().close();
