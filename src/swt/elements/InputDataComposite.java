@@ -60,8 +60,8 @@ public class InputDataComposite extends Composite {
             @Override
             public void verifyText(VerifyEvent e) {
                 String oldInputValue = ((Text) e.widget).getText();
-                String newSInputValue = oldInputValue.substring(0, e.start) + e.text + oldInputValue.substring(e.end);
-                if (newSInputValue.matches("[0-9]{1,2}") || newSInputValue.matches("")) {
+                String newInputValue = oldInputValue.substring(0, e.start) + e.text + oldInputValue.substring(e.end);
+                if (newInputValue.matches("[0-9]{1,2}") || newInputValue.matches("")) {
                     e.doit = true;
                 } else {
                     e.doit = false;

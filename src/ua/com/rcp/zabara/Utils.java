@@ -130,8 +130,8 @@ public class Utils {
             result = imageDescriptor.createImage();
             return result;
         } catch (Exception e) {
-            e.printStackTrace();
             LOG.warn("Failed to get Image");
+            e.printStackTrace();
 
         }
 
@@ -148,8 +148,8 @@ public class Utils {
         try {
             service.executeCommand(command, null);
         } catch (ExecutionException | NotDefinedException | NotEnabledException | NotHandledException e1) {
-            e1.printStackTrace();
             LOG.warn("Failed to execute command");
+            e1.printStackTrace();
         }
     }
 
@@ -164,8 +164,8 @@ public class Utils {
         try {
             tableViewPart = tablePage.showView(TableViewerPart.ID);
         } catch (PartInitException e) {
-            e.printStackTrace();
             LOG.error("Failed to get TableViewerPart");
+            e.printStackTrace();
         }
         return (TableViewerPart) tableViewPart;
 
@@ -182,8 +182,8 @@ public class Utils {
         try {
             compositeViewPart = compositePage.showView(CompositePart.ID);
         } catch (PartInitException e) {
-            e.printStackTrace();
             LOG.error("Failed to get CompositeViewPart");
+            e.printStackTrace();
         }
         return (CompositePart) compositeViewPart;
 
