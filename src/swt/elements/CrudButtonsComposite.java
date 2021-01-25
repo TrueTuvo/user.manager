@@ -19,7 +19,7 @@ public class CrudButtonsComposite extends Composite {
 
     private final Button deletePersonButton;
 
-    private final Button resetPersonButton;
+    private final Button cancelPersonButton;
 
     public CrudButtonsComposite(Composite parent, int style) {
         super(parent, style);
@@ -33,8 +33,8 @@ public class CrudButtonsComposite extends Composite {
         deletePersonButton = new Button(this, SWT.PUSH);
         deletePersonButton.setText("Delete");
 
-        resetPersonButton = new Button(this, SWT.PUSH);
-        resetPersonButton.setText("Reset");
+        cancelPersonButton = new Button(this, SWT.PUSH);
+        cancelPersonButton.setText("Cancel");
     }
 
     /**
@@ -65,11 +65,11 @@ public class CrudButtonsComposite extends Composite {
     }
 
     /**
-     * returns resetPersonButton of this object
+     * returns cancelPersonButton of this object
      * 
-     * @return resetPersonButton
+     * @return cancelPersonButton
      */
-    public Button getResetPersonButton() {
-        return resetPersonButton;
+    public Button getCancelPersonButton() {
+        return cancelPersonButton;
     }
 }

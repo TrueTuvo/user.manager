@@ -46,7 +46,7 @@ public class CompositePart extends ViewPart {
             }
         });
 
-        complexComposite.getResetButton().addSelectionListener(new SelectionAdapter() {
+        complexComposite.getCancelButton().addSelectionListener(new SelectionAdapter() {
             public void widgetSelected(SelectionEvent e) {
                 Utils.executeCommand(Utils.COMMAND_CANCEL, service);
 

@@ -29,7 +29,7 @@ public class ComplexComposite extends Composite {
 
     private final Button deleteButton;
 
-    private final Button resetButton;
+    private final Button cancelButton;
 
     public ComplexComposite(Composite parent, int style) {
         super(parent, style);
@@ -51,7 +51,7 @@ public class ComplexComposite extends Composite {
         newButton = crudButtonsComposite.getNewPersonButton();
         saveButton = crudButtonsComposite.getSavePersonButton();
         deleteButton = crudButtonsComposite.getDeletePersonButton();
-        resetButton = crudButtonsComposite.getResetPersonButton();
+        cancelButton = crudButtonsComposite.getCancelPersonButton();
     }
 
     /**
@@ -109,11 +109,11 @@ public class ComplexComposite extends Composite {
     }
 
     /**
-     * returns resetButton of this object
+     * returns cancelButton of this object
      * 
-     * @return resetButton
+     * @return cancelButton
      */
-    public Button getResetButton() {
-        return resetButton;
+    public Button getCancelButton() {
+        return cancelButton;
     }
 }
