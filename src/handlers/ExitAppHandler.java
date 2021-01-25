@@ -26,13 +26,11 @@ import ua.com.rcp.zabara.Utils;
 public class ExitAppHandler extends AbstractHandler {
     private static final Logger LOG = LoggerFactory.getLogger(ExitAppHandler.class);
 
-
     @Override
     public Object execute(ExecutionEvent event) throws ExecutionException {
         if (MessageDialog.openConfirm(Display.getCurrent().getActiveShell(), "Confirmation", "Do you want to exit?")) {
-            try {
-                FileWriter fileWriter = new FileWriter(new File(Utils.DATABASE_PATH));
-                BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            try (FileWriter fileWriter = new FileWriter(new File(Utils.DATABASE_PATH));
+                    BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);) {
 
                 for (Person person : ModelProvider.INSTANCE.getPersons()) {
                     bufferedWriter.write(person.getName() + "," + person.getGroup() + "," + person.isSwtDone());
@@ -43,7 +41,6 @@ public class ExitAppHandler extends AbstractHandler {
                 bufferedWriter.close();
             } catch (IOException ex) {
                 LOG.warn("Some problem with writing file. Changes was not saved.");
-                System.err.println("Some problem with writing file. Changes was not saved.");
             }
             Display.getCurrent().getActiveShell().close();
         }
