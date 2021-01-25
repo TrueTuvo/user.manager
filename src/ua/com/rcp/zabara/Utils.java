@@ -48,7 +48,7 @@ public class Utils {
     /**
      * Writes person's data to fields of the right side
      * 
-     * @param mainComposite right side
+     * @param complexComposite right side
      * @param selectionPerson selected Person
      */
     public static void putPersonData(ComplexComposite complexComposite, Person selectionPerson) {
@@ -60,24 +60,24 @@ public class Utils {
     }
 
     /**
-     * Clear all fields in the right side
+     * Clear all fields in the complexComposite
      */
-    public static void putEmptyPersonData(ComplexComposite mainComposite) {
-        mainComposite.getNameTextField().setText("");
-        mainComposite.getGroupTextField().setText("");
-        mainComposite.getSwtCheckdone().setSelection(false);
+    public static void putEmptyPersonData(ComplexComposite complexComposite) {
+        complexComposite.getNameTextField().setText("");
+        complexComposite.getGroupTextField().setText("");
+        complexComposite.getSwtCheckdone().setSelection(false);
     }
 
     /**
      * Discards changes which did without save in the composite.
      * 
-     * @param mainComposite composite with changes
+     * @param complexComposite composite with changes
      * @param currentPerson person with data that without changes
      */
-    public static void removeChangesPersonData(ComplexComposite mainComposite, Person currentPerson) {
-        mainComposite.getNameTextField().setText(currentPerson.getName());
-        mainComposite.getGroupTextField().setText(String.valueOf(currentPerson.getGroup()));
-        mainComposite.getSwtCheckdone().setSelection(currentPerson.isSwtDone());
+    public static void removeChangesPersonData(ComplexComposite complexComposite, Person currentPerson) {
+        complexComposite.getNameTextField().setText(currentPerson.getName());
+        complexComposite.getGroupTextField().setText(String.valueOf(currentPerson.getGroup()));
+        complexComposite.getSwtCheckdone().setSelection(currentPerson.isSwtDone());
     }
 
     /**
@@ -147,9 +147,9 @@ public class Utils {
     public static void executeCommand(String command, IHandlerService service) {
         try {
             service.executeCommand(command, null);
-        } catch (ExecutionException | NotDefinedException | NotEnabledException | NotHandledException e1) {
+        } catch (ExecutionException | NotDefinedException | NotEnabledException | NotHandledException e) {
             LOG.warn("Failed to execute command");
-            e1.printStackTrace();
+            e.printStackTrace();
         }
     }
 
