@@ -7,7 +7,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import ua.com.rcp.zabara.Utils;
 
@@ -22,16 +24,27 @@ public enum ModelProvider {
     INSTANCE;
 
     private List<Person> persons;
+    
+    private static final Logger LOG = LoggerFactory.getLogger(ModelProvider.class);
+
 
     private ModelProvider() {
-        persons = readPersonsWithBundle();
+        persons = readPersonsFromFile();
     }
-
+    
+    /**
+     * return ArrayList with persons from file
+     * @return ArrayList with persons from file
+     */
     public List<Person> getPersons() {
         return persons;
     }
-
-    private List<Person> readPersonsWithBundle() {
+    
+    /**
+     * reads persons from the file and put their to the ArrayList
+     * @return ArrayList with persons from file
+     */
+    private List<Person> readPersonsFromFile() {
 
         List<Person> persons = new ArrayList<Person>();
 
@@ -49,17 +62,15 @@ public enum ModelProvider {
                                 Boolean.parseBoolean(personDataElements[2]));
                         persons.add(person);
                     } catch (Exception e) {
-                        Logger.getLogger(ModelProvider.class.getName()).warning("failure when trying to read a person");
+                        LOG.warn("failure when trying to read a person");
                         System.out.println("Cant parse line to person correctly: " + personDataString);
                     }
                 }
             }
         } catch (FileNotFoundException exception) {
-            Logger.getLogger(ModelProvider.class.getName()).warning("failure when trying to find the DATABASE file");
-            System.err.println("Could not find the DATABASE file");
+            LOG.warn("failure when trying to find the DATABASE file");
         } catch (IOException e) {
-            Logger.getLogger(ModelProvider.class.getName()).warning("failure when trying to read the DATABASE file");
-            System.err.println("Could not read the DATABASE file");
+            LOG.warn("failure when trying to read the DATABASE file");
         }
 
         return persons;
