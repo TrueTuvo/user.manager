@@ -16,10 +16,11 @@ public class Application implements IApplication {
         Display display = PlatformUI.createDisplay();
         try {
             int returnCode = PlatformUI.createAndRunWorkbench(display, new ApplicationWorkbenchAdvisor());
-            if (returnCode == PlatformUI.RETURN_RESTART)
+            if (returnCode == PlatformUI.RETURN_RESTART) {
                 return IApplication.EXIT_RESTART;
-            else
+            } else {
                 return IApplication.EXIT_OK;
+            }
         } finally {
             display.dispose();
         }
@@ -28,13 +29,15 @@ public class Application implements IApplication {
 
     @Override
     public void stop() {
-        if (!PlatformUI.isWorkbenchRunning())
+        if (!PlatformUI.isWorkbenchRunning()) {
             return;
+        }
         final IWorkbench workbench = PlatformUI.getWorkbench();
         final Display display = workbench.getDisplay();
         display.syncExec(() -> {
-            if (!display.isDisposed())
+            if (!display.isDisposed()) {
                 workbench.close();
+            }
         });
     }
 }
