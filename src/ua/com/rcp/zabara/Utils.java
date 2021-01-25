@@ -1,6 +1,15 @@
 package ua.com.rcp.zabara;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.NotEnabledException;
@@ -16,6 +25,7 @@ import org.eclipse.ui.handlers.IHandlerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import jface.elements.model.ModelProvider;
 import jface.elements.model.Person;
 import parts.CompositePart;
 import parts.TableViewerPart;
@@ -36,7 +46,7 @@ public class Utils {
     public static final String COMMAND_DELETE = "ua.com.rcp.zabara.command.delete";
     public static final String COMMAND_CANCEL = "ua.com.rcp.zabara.command.cancel";
 
-    public static final String DATABASE_PATH = "C:\\luxoft\\database.txt";
+    public static final String DATABASE_PATH = getDataBaseFilePath();
 
     /**
      * Object of this class we won't create
@@ -187,5 +197,65 @@ public class Utils {
         }
         return (CompositePart) compositeViewPart;
 
+    }
+
+    private static String getDataBaseFilePath() {
+        return System.getProperty("user.home") + File.separator + "persons.txt";
+
+    }
+
+    /**
+     * reads persons from the file and put their to the ArrayList
+     * 
+     * @return ArrayList with persons from file
+     */
+    public static List<Person> readPersonsFromFile() {
+
+        List<Person> persons = new ArrayList<Person>();
+
+        File dataBaseFile = new File(DATABASE_PATH);
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(dataBaseFile))) {
+
+            while (reader.ready()) {
+
+                String personDataString = reader.readLine();
+                if (!personDataString.equals("")) {
+                    String[] personDataElements = personDataString.split(",");
+                    try {
+                        Person person = new Person(personDataElements[0], Integer.parseInt(personDataElements[1]),
+                                Boolean.parseBoolean(personDataElements[2]));
+                        persons.add(person);
+                    } catch (Exception e) {
+                        LOG.warn("failure when trying to read a person");
+                    }
+                }
+            }
+        } catch (FileNotFoundException exception) {
+             LOG.warn("failure when trying to find the DATABASE file");
+        } catch (IOException e) {
+             LOG.warn("failure when trying to read the DATABASE file");
+        }
+
+        return persons;
+
+    }
+    /**
+     * Writes persons to the DATABASE file.
+     * 
+     */
+    public static void writePersonsToFile() {
+        try (FileWriter fileWriter = new FileWriter(new File(DATABASE_PATH));
+                BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);) {
+
+            for (Person person : ModelProvider.INSTANCE.getPersons()) {
+                bufferedWriter.write(person.getName() + "," + person.getGroup() + "," + person.isSwtDone());
+                bufferedWriter.newLine();
+            }
+            bufferedWriter.flush();
+            bufferedWriter.close();
+        } catch (IOException ex) {
+            LOG.warn("Some problem with writing file. Changes was not saved.");
+        }
     }
 }

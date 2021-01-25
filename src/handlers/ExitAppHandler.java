@@ -1,20 +1,12 @@
 package handlers;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Display;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import jface.elements.model.ModelProvider;
-import jface.elements.model.Person;
 import ua.com.rcp.zabara.Utils;
 
 /**
@@ -24,25 +16,12 @@ import ua.com.rcp.zabara.Utils;
  *
  */
 public class ExitAppHandler extends AbstractHandler {
-    private static final Logger LOG = LoggerFactory.getLogger(ExitAppHandler.class);
 
     @Override
     public Object execute(ExecutionEvent event) throws ExecutionException {
         if (MessageDialog.openConfirm(Display.getCurrent().getActiveShell(), "Confirmation", "Do you want to exit?")) {
-            try (FileWriter fileWriter = new FileWriter(new File(Utils.DATABASE_PATH));
-                    BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);) {
-
-                for (Person person : ModelProvider.INSTANCE.getPersons()) {
-                    bufferedWriter.write(person.getName() + "," + person.getGroup() + "," + person.isSwtDone());
-                    bufferedWriter.newLine();
-                }
-                bufferedWriter.flush();
-
-                bufferedWriter.close();
-            } catch (IOException ex) {
-                LOG.warn("Some problem with writing file. Changes was not saved.");
-            }
-            Display.getCurrent().getActiveShell().close();
+            Utils.writePersonsToFile();
+            Display.getCurrent().getActiveShell().close();        
         }
         return null;
     }
