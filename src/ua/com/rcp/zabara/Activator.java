@@ -3,6 +3,8 @@ package ua.com.rcp.zabara;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
+import jface.elements.model.Person;
+
 /**
  * The activator class controls the plug-in life cycle
  */
