@@ -86,6 +86,13 @@
 	   							label="Save"
 	   							style="push"
 	   							tooltip="Save">
+	   		      				<visibleWhen
+        							checkEnabled="false">
+							        <reference
+										definitionId="ua.com.rcp.zabara.testmenubutton">
+							        </reference>
+							     </visibleWhen>
+						          
 	   						</command>
 	   						<command
 	   							commandId="ua.com.rcp.zabara.command.delete"
@@ -99,8 +106,8 @@
 	   							style="push"
 	   							tooltip="Cancel">
 	   						</command>
-	   				</menu>		
-	   				<menu
+	   					</menu>		
+	   					<menu
 	   					label="Help"
 	   					tooltip="Help">
 	   						<command
@@ -150,35 +157,76 @@
 	   <extension
 	   			 point="org.eclipse.ui.commands">
 	   		<command
-	   				defaultHandler="handlers.NewPersonHandler"
 	   				id="ua.com.rcp.zabara.command.new"
 	   				name="New">
 	   		</command>
 	   		<command
-	   				defaultHandler="handlers.SavePersonHandler"
 	   				id="ua.com.rcp.zabara.command.save"
-	   				name="Save">
+	   				name="Save">  				
 	   		</command>
 	   		<command
-	   				defaultHandler="handlers.DeletePersonHandler"
 	   				id="ua.com.rcp.zabara.command.delete"
 	   				name="Delete">
 	   		</command>
 	   		<command
-	   				defaultHandler="handlers.CancelPersonHandler"
 	   				id="ua.com.rcp.zabara.command.cancel"
 	   				name="Cancel">
 	   		</command>
 	   		<command
-	   				defaultHandler="handlers.ExitAppHandler"
 	   				id="ua.com.rcp.zabara.command.exit"
 	   				name="Exit">
 	   		</command>
 	   		<command
-	   				defaultHandler="handlers.AboutAppHandler"
 	   				id="ua.com.rcp.zabara.command.about"
 	   				name="About">
 	   		</command>
 	   	</extension>
-	   				
+    <extension
+          point="org.eclipse.ui.handlers">
+       <handler
+             class="handlers.AboutAppHandler"
+             commandId="ua.com.rcp.zabara.command.about">
+       </handler>
+       <handler
+             class="handlers.CancelPersonHandler"
+             commandId="ua.com.rcp.zabara.command.cancel">
+       </handler>
+       <handler
+             class="handlers.DeletePersonHandler"
+             commandId="ua.com.rcp.zabara.command.delete">
+       </handler>
+       <handler
+             class="handlers.ExitAppHandler"
+             commandId="ua.com.rcp.zabara.command.exit">
+       </handler>
+       <handler
+             class="handlers.NewPersonHandler"
+             commandId="ua.com.rcp.zabara.command.new">
+       </handler>
+       <handler
+             class="handlers.SavePersonHandler"
+             commandId="ua.com.rcp.zabara.command.save">
+       </handler>
+    </extension>
+    <extension
+          point="org.eclipse.core.expressions.propertyTesters">
+       <propertyTester
+             class="ua.com.rcp.zabara.SelectionTester"
+             id="ua.com.rcp.zabara.propertyTesters.SelectionTester"
+             namespace="ua.com.rcp.zabara.propertyTesters"
+             properties="hasNonEmptyTextSelection"
+             type="java.lang.Object">
+       </propertyTester>
+    </extension>
+    <extension
+          point="org.eclipse.core.expressions.definitions">
+       <definition
+             id="ua.com.rcp.zabara.testmenubutton">
+          <test
+                forcePluginActivation="true"
+                property="ua.com.rcp.zabara.propertyTesters.hasNonEmptyTextSelection">
+          </test>
+       </definition>
+    </extension>
+
 </plugin>
