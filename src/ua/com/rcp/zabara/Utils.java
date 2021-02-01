@@ -169,15 +169,19 @@ public class Utils {
      * @return TableViewerPart's object of the app
      */
     public static TableViewerPart getTableViewerPart() {
-        IWorkbenchPage tablePage = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
-        IViewPart tableViewPart = null;
-        try {
-            tableViewPart = tablePage.showView(TableViewerPart.ID);
-        } catch (PartInitException e) {
-            LOG.error("Failed to get TableViewerPart");
-            e.printStackTrace();
+        IViewPart viewPart = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage()
+                .findView(TableViewerPart.ID);
+
+        TableViewerPart tableViewerPart = null;
+        if (viewPart != null) {
+            try {
+                tableViewerPart = (TableViewerPart) viewPart;
+                return tableViewerPart;
+            } catch (ClassCastException exception) {
+                LOG.warn("Some problem with  classes cast. Current method can return incorrect result");
+            }
         }
-        return (TableViewerPart) tableViewPart;
+        return  null;
 
     }
 
@@ -187,15 +191,19 @@ public class Utils {
      * @return CompositePart's object of the app
      */
     public static CompositePart getCompositePart() {
-        IWorkbenchPage compositePage = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
-        IViewPart compositeViewPart = null;
-        try {
-            compositeViewPart = compositePage.showView(CompositePart.ID);
-        } catch (PartInitException e) {
-            LOG.error("Failed to get CompositeViewPart");
-            e.printStackTrace();
+        IViewPart viewPart = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage()
+                .findView(CompositePart.ID);
+
+        CompositePart compositePart = null;
+        if (viewPart != null) {
+            try {
+                compositePart = (CompositePart) viewPart;
+                return compositePart;
+            } catch (ClassCastException exception) {
+                LOG.warn("Some problem with  classes cast. Current method can return incorrect result");
+            }
         }
-        return (CompositePart) compositeViewPart;
+        return  null;
 
     }
 
